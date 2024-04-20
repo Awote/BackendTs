@@ -1,0 +1,29 @@
+{
+  "name": "backendts",
+  "version": "1.0.0",
+  "description": "this is pet project",
+  "scripts": {
+    "lint": "eslint . --fix",
+    "build": "npx tsc",
+    "start": "node -r source-map-support/register build/main",
+    "start:dry": "node -r dotenv/config -r source-map-support/register build/main",
+    "local": "nodemon -r dotenv/config main.ts",
+    "migrate:sql:up": "node ./node_modules/knex/bin/cli.js migrate:latest --knexfile ./internal/db/sql/config.ts",
+    "migrate:sql:up:local": "node -r dotenv/config ./node_modules/knex/bin/cli.js migrate:latest --knexfile ./internal/db/sql/config.ts",
+    "test": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "nodemonConfig": {
+    "ext": "js, ts, json, yml, yaml"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "knex": "^3.1.0",
+    "mongodb": "^6.5.0",
+    "nodemon": "^3.1.0",
+    "pg": "^8.11.5",
+    "ts-node": "^10.9.2"
+  }
+}
